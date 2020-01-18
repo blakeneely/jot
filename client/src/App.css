@@ -1,0 +1,48 @@
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+.addIcon {
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+
+.trashIcon {
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 150px;
+}
+
+html, h1, .navbar {
+    /* background: url(https://upload.wikimedia.org/wikipedia/commons/e/e4/StarfieldSimulation.gif); */
+    height: 100%;
+}
+
+.remove-btn {
+    margin-right: 0.5rem;
+}
+
+/* Fade transition */
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+    background-color: red;
+}
+
+.fade-enter-exit {
+    opacity: 0.01;
+    transition: opacity 1000ms ease-in;
+}
