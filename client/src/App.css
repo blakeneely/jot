@@ -13,7 +13,7 @@ body {
 }
 
 .container .row {
-    outline: solid 1px black;
+    outline: solid 1px white;
 }
 
 .trashIcon {
