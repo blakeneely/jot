@@ -4,6 +4,11 @@ body {
     color: var(--text);
 }
 
+.list-group-item {
+    background: var(--listBackground);
+    color: var(--listColor);
+}
+
 .theme {
     margin-top: 15px;
     margin-left: 15px;
@@ -16,7 +21,7 @@ h1 {
 }
 
 .navbar-brand {
-    color: #b3b3b3;
+    color: black;
     margin-left: -2rem;
     padding-left: 0;
 }
