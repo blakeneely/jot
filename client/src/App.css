@@ -1,24 +1,13 @@
+/* Universal Styling */
 body {
     background: var(--background);
     color: var(--text);
 }
 
-.addIcon {
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-
-.app-container {
-    padding: 25px;
-}
-
-.container .row {
-    outline: solid 1px white;
-}
-
-.trashIcon {
-    margin-right: .5rem;
-    cursor: pointer;
+.theme {
+    margin-top: 15px;
+    margin-left: 15px;
+    float:left;
 }
 
 h1 {
@@ -26,11 +15,51 @@ h1 {
     color: white
 }
 
-html, h1, .navbar {
-    /* background: url(https://upload.wikimedia.org/wikipedia/commons/e/e4/StarfieldSimulation.gif); */
-    height: 100%;
+.navbar-brand {
+    color: #b3b3b3;
+    margin-left: -2rem;
+    padding-left: 0;
 }
 
+/* Icon Styling */
+.add-icon {
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.note-icon {
+    margin-right: 1rem;
+}
+
+.trash-icon {
+    float: right;
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    margin-left: 1rem;
+}
+
+/* Container Styling */
+.app-container {
+    padding: 25px;
+}
+
+.notes-container {
+    max-width: 700px;
+}
+
+.main-container {
+    min-height: 70vh;
+    margin-bottom: 35px;
+}
+
+.container .row {
+    outline: solid 1px white;
+}
+
+/* Buttons */
 .remove-btn {
     margin-right: 0.5rem;
 }
