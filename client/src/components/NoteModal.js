@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Title from './Title';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
  
 import {
     Button,
@@ -63,11 +65,11 @@ class NoteModal extends Component {
                 >
                    <FontAwesomeIcon icon={faPlus} 
                     size="3x"
-                    className="addIcon"
+                    className="add-icon"
                    />
                 </a>
                 ) : (
-                <h1 className="mb-3 text-center"></h1>
+                <Title />
                 )}
                 <Modal
                     isOpen={this.state.modal}
@@ -78,7 +80,11 @@ class NoteModal extends Component {
                     <ModalHeader
                         toggle={this.toggle}
                     >
-                        Add To Notes
+                    <FontAwesomeIcon icon={faEdit} 
+                    size="2x"
+                    className="note-icon"
+                   />
+                        Jot down a note
                     </ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
@@ -88,7 +94,7 @@ class NoteModal extends Component {
                                     type="text"
                                     name="text"
                                     id="note"
-                                    placeholder="Add note"
+                                    placeholder="ex: Make sure to get the mail"
                                     onChange={this.onChange}
                                 />
                                 <Button

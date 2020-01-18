@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Container, ListGroup, ListGroupItem, Button, ListGroupItemHeading, Label, Input } from 'reactstrap';
+import React, { Component } from 'react';
+import { Container, ListGroup, ListGroupItem, ListGroupItemHeading, Label, Input } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getNotes, deleteNote, toggleCompleted } from '../actions/noteActions';
@@ -9,7 +9,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class Noteslist extends Component {
     state = {
-        checked: false
+        checked: new Map()
     };
 
     static propTypes = {
@@ -28,40 +28,37 @@ class Noteslist extends Component {
     };
 
     onChange = name  => event => {
-        this.setState({ [name]: event.target.checked });
+        // this.setState({ [name]: event.target.checked });
+        const item = event.target.name;
+        const isChecked = event.target.checked;
+        this.setState(prevState => ({ checked: prevState.checked.set(item, isChecked) }));
     };
 
     onCheck = id => {
         this.props.toggleCompleted(id);
-
-        // const updatedNote = {
-        //     completed: true
-        // }
-        // this.props.toggleCompleted(id, updatedNote);
-
     };
 
   render() {
       const { notes } = this.props.note;
-    //   const hasCompleted = notes.filter((note) => !note.completed)
-    //   const notCompleted = notes.filter((note) => note.completed)
-      const hasCompleted = notes.filter(Boolean)
-  
       return(
-          <Container>
+          <Container className="notes-container">
             { this.props.isAuthenticated ? (
-                (hasCompleted ? (
+                (notes.completed !== true ? (
                     <ListGroup>
                     <ListGroupItemHeading>TO DO</ListGroupItemHeading>
                     <TransitionGroup className="notes-list">
-                        {hasCompleted.map(({ _id, text }) => (
+                        {notes.map(({ _id, text }) => (
                             <CSSTransition key={_id} timeout={500} classNames="fade">
                                 <ListGroupItem>
-                                    <Label check>
+                                    <Label 
+                                    check
+                                    className="checkbox-label"
+                                    >
                                     <Input 
+                                    className="checkbox"
                                     type="checkbox" 
                                     name="checkbox"
-                                    checked={this.state.checked}
+                                    checked={this.state.checked.get(notes._id)}
                                     onChange={this.onChange.bind(this, _id)}
                                     onClick={this.onCheck.bind(this, _id)}
                                     />
@@ -75,7 +72,7 @@ class Noteslist extends Component {
                                     >
                                         <FontAwesomeIcon icon={faTrash}
                                         size="lg" 
-                                        className="trashIcon"
+                                        className="trash-icon"
                                     />
                                     </a>
                                 </ListGroupItem>

@@ -25,8 +25,7 @@ export default function(state = initialState, action) {
             }
         case TOGGLE_COMPLETED:
             return {
-                ...state,
-                notes: [action.payload, ...state.notes]
+                ...state
             }
         case NOTES_LOADING:
             return {
