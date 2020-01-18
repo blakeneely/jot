@@ -67,7 +67,7 @@ class NoteModal extends Component {
                    />
                 </a>
                 ) : (
-                <h1 className="mb-3 text-center">Jot</h1>
+                <h1 className="mb-3 text-center"></h1>
                 )}
                 <Modal
                     isOpen={this.state.modal}
