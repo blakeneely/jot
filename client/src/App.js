@@ -14,11 +14,15 @@ import DarkTheme from 'react-dark-theme'
 const darkTheme = {
   background: "black",
   text: '#b3b3b3',
+  listBackground: '#d3d3d3',
+  listColor: 'black'
 }
 
 const lightTheme = {
   background: '#355487',
   text: '#b3b3b3',
+  listBackground: '#FCFDFF',
+  listColor: '#8e8e8e'
 }
 
 class App extends Component {
