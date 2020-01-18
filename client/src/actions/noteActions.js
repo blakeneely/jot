@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from './types';
+import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING, TOGGLE_COMPLETED  } from './types';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
@@ -42,6 +42,18 @@ export const deleteNote = id => (dispatch, getState) => {
     )
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status))
     );
+};
+
+export const toggleCompleted = id => (dispatch, getState) => {
+    axios.post(`api/notes/${id}`, tokenConfig(getState))
+    .then(res =>
+        dispatch({
+            type: TOGGLE_COMPLETED,
+            payload: id
+        })
+    )
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status))
+    );    
 };
 
 // Redux action to set loading time for animation later while database responds

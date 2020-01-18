@@ -1,4 +1,4 @@
-import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING } from '../actions/types';
+import { GET_NOTES, ADD_NOTE, DELETE_NOTE, NOTES_LOADING, TOGGLE_COMPLETED } from '../actions/types';
 
 const initialState = {
     notes: [],
@@ -19,6 +19,11 @@ export default function(state = initialState, action) {
                 notes: state.notes.filter(note => note._id !== action.payload)
             }
         case ADD_NOTE:
+            return {
+                ...state,
+                notes: [action.payload, ...state.notes]
+            }
+        case TOGGLE_COMPLETED:
             return {
                 ...state,
                 notes: [action.payload, ...state.notes]

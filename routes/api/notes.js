@@ -27,4 +27,10 @@ router.delete('/:id', auth, (req, res) => {
     .catch(err => res.status(404).json({success:false}));
 });
 
+// FIND and UPDATE /api/notes/:id route to find a note and update it's completed boolean value
+router.post('/:id', (req, res) => {
+    Note.findOneAndUpdate({ _id: req.params.id }, {completed: true }, { new: true })
+    .then(note => res.json(note))
+})
+
 module.exports = router;
